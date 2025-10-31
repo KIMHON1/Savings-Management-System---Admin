@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login({ setIsAuthenticated }) {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
@@ -15,6 +15,7 @@ export default function Login() {
     try {
       const res = await axios.post("http://localhost:8000/api/auth/admin/login", form);
       sessionStorage.setItem("token", res.data.token);
+      setIsAuthenticated(true); // Now this works
       navigate("/dashboard");
     } catch (err) {
       setMessage(err.response?.data?.message || "Login failed");
