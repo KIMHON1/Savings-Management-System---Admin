@@ -4,7 +4,6 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Customers from "./pages/Customers";
-import Transactions from "./pages/Transactions";
 import AdminLayout from "./layouts/AdminLayout";
 
 function App() {
